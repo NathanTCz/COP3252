@@ -2,7 +2,7 @@
 ,^.
 |||
 |||       _T_
-|||      [ | ]
+|||      [---]
 |||   .-.|:|:|.-.
 ===_ /\|  "'"  |/
  E]_|\/ \--|-|''''|
@@ -33,7 +33,7 @@ public class Knight {
   public void printDetails() {
     System.out.printf(",^.                      Name:                %s\n", name);
     System.out.printf("|||       _T_            Health:              %s\n", health);
-    System.out.printf("|||      [ | ]           Number of Battles:   %s\n", numBattles);
+    System.out.printf("|||      [---]           Number of Battles:   %s\n", numBattles);
     System.out.printf("|||   .-.|:|:|.-.        Age:                 %s\n", age);
     System.out.printf("===_ /\\|  \"\'\"  |/\\       Gold:                %s\n", gold);
     System.out.printf(" E]_|\\/ \\--|-|\'\'\'\'|\n");
