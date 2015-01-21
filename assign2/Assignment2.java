@@ -16,10 +16,19 @@ public class Assignment2 {
     System.out.printf("Enter a name: ");
     String name = jin.nextLine();
 
+    System.out.printf("Enter health: ");
+    int health = jin.nextInt();
+
+    System.out.printf("Enter number of battles: ");
+    int numBat = jin.nextInt();
+
     System.out.printf("Enter age: ");
     int age = jin.nextInt();
 
-    Knight dude = new Knight(name, 100, 0, age, 0);
+    System.out.printf("Enter gold: ");
+    int gold = jin.nextInt();
+
+    Knight dude = new Knight(name, health, numBat, age, gold);
     dude.printDetails();
   }
 }
