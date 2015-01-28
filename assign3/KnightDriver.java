@@ -37,8 +37,8 @@ public class KnightDriver {
 
     String output =
       String.format(
-        "Knight Name: %s\nKnight Health: %d\nKnight Battles: %d\nKnight Age: %d\nKnight Gold: %d\nKnights Average Income: %d\n\n",
-        dude.get_name(), dude.get_health(), dude.get_numBat(), dude.get_age(), dude.get_gold(), (gold/numBat)
+        "Knight Name: %s\nKnight Health: %d\nKnight Battles: %d\nKnight Age: %d\nKnight Gold: %d\nKnights Average Income: %d\n\n%s",
+        dude.get_name(), dude.get_health(), dude.get_numBat(), dude.get_age(), dude.get_gold(), (gold/numBat), stars.show_stars()
         );
 
     JOptionPane.showMessageDialog(null, output);
