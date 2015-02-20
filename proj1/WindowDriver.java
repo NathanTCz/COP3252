@@ -50,19 +50,25 @@ public class WindowDriver implements ActionListener {
     curGame = new Game(false, "X", false, "O");
   }
 
+  public void checkOver(Game g) {
+    if (g.over) System.out.println("game over");
+  }
+
   public void actionPerformed (ActionEvent a) {
     if (a.getSource() instanceof JButton) markButton(a);
   }
 
   public void markButton (ActionEvent a) {
-    if (a.getSource() == b1) b1.setText( curGame.takeTurn() );
-    if (a.getSource() == b2) b2.setText( curGame.takeTurn() );
-    if (a.getSource() == b3) b3.setText( curGame.takeTurn() );
-    if (a.getSource() == b4) b4.setText( curGame.takeTurn() );
-    if (a.getSource() == b5) b5.setText( curGame.takeTurn() );
-    if (a.getSource() == b6) b6.setText( curGame.takeTurn() );
-    if (a.getSource() == b7) b7.setText( curGame.takeTurn() );
-    if (a.getSource() == b8) b8.setText( curGame.takeTurn() );
-    if (a.getSource() == b9) b9.setText( curGame.takeTurn() );
+    if (a.getSource() == b1) b1.setText( curGame.takeTurn(0, 0) );
+    if (a.getSource() == b2) b2.setText( curGame.takeTurn(0, 1) );
+    if (a.getSource() == b3) b3.setText( curGame.takeTurn(0, 2) );
+    if (a.getSource() == b4) b4.setText( curGame.takeTurn(1, 0) );
+    if (a.getSource() == b5) b5.setText( curGame.takeTurn(1, 1) );
+    if (a.getSource() == b6) b6.setText( curGame.takeTurn(1, 2) );
+    if (a.getSource() == b7) b7.setText( curGame.takeTurn(2, 0) );
+    if (a.getSource() == b8) b8.setText( curGame.takeTurn(2, 1) );
+    if (a.getSource() == b9) b9.setText( curGame.takeTurn(2, 2) );
+
+    checkOver(curGame);
   }
 }
