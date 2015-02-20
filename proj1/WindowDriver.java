@@ -3,6 +3,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class WindowDriver implements ActionListener {
+  public int YES_OPTION = 0;
+  public int NO_OPTION = 1;
+
   private JFrame window = new JFrame("FSU");
   private JButton b1 = new JButton();
   private JButton b2 = new JButton();
@@ -13,9 +16,10 @@ public class WindowDriver implements ActionListener {
   private JButton b7 = new JButton();
   private JButton b8 = new JButton();
   private JButton b9 = new JButton();
+
   private Game curGame;
 
-  public WindowDriver () {
+  public WindowDriver (Game g) {
     /*Create Window*/
     window.setSize(300,300);
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,12 +50,20 @@ public class WindowDriver implements ActionListener {
     /*Make The Window Visible*/
     window.setVisible(true);
 
-    /*Start the Game*/
-    curGame = new Game(false, "X", false, "O");
+    curGame = g;
+    initGrid();
   }
 
-  public void checkOver(Game g) {
-    if (g.over) System.out.println("game over");
+  public void initGrid () {
+    b1.setText("");
+    b2.setText("");
+    b3.setText("");
+    b4.setText("");
+    b5.setText("");
+    b6.setText("");
+    b7.setText("");
+    b8.setText("");
+    b9.setText("");
   }
 
   public void actionPerformed (ActionEvent a) {
@@ -70,5 +82,23 @@ public class WindowDriver implements ActionListener {
     if (a.getSource() == b9) b9.setText( curGame.takeTurn(2, 2) );
 
     checkOver(curGame);
+  }
+
+  public void checkOver(Game g) {
+    if (g.over) {
+      System.out.println("game over");
+
+      int opt = JOptionPane.showConfirmDialog(null,
+                                    "Play Again?",
+                                    "Game Over",
+                                    JOptionPane.YES_NO_OPTION
+                                   );
+      if (opt == YES_OPTION) {
+        curGame = new Game(false, "X", false, "O");
+        initGrid();
+      }
+      else if (opt == NO_OPTION)
+       window.dispose();
+    }
   }
 }
