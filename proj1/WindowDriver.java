@@ -88,9 +88,15 @@ public class WindowDriver implements ActionListener {
     if (g.over) {
       System.out.println("game over");
 
+      String output;
+      if (g.checkCat())
+        output = "Cat Game";
+      else
+        output = g.winner.getSymbol() + " wins!";
+
       int opt = JOptionPane.showConfirmDialog(null,
                                     "Play Again?",
-                                    "Game Over",
+                                    output,
                                     JOptionPane.YES_NO_OPTION
                                    );
       if (opt == YES_OPTION) {
