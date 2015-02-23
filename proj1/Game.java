@@ -4,6 +4,7 @@ public class Game {
   private Player turn;
   private int numGames;
   private String[][] grid;
+  private String winningSym;
 
   public boolean over;
   public Player winner;
@@ -55,10 +56,17 @@ public class Game {
   }
 
   public void checkWin () {
-    if (checkRow() || checkCol() || checkDiag1() || checkDiag2())
+    if (checkRow() || checkCol() || checkDiag1() || checkDiag2()) {
       over = true;
-    else if (checkCat())
-     over = true;
+
+      if ( winningSym == p1.getSymbol() )
+        winner = p1;
+      else
+        winner = p2;
+    }
+    else if (checkCat()) {
+      over = true;
+    }
   }
 
   public boolean checkRow () {
@@ -68,6 +76,7 @@ public class Game {
 
       if ( grid[i][1] == sym && grid[i][2] == sym ) {
         System.out.println("row" + i);
+        winningSym = sym;
         return true;
       }
     }
@@ -81,6 +90,7 @@ public class Game {
 
       if ( grid[1][i] == sym && grid[2][i] == sym ) {
         System.out.println("col" + i);
+        winningSym = sym;
         return true;
       }
     }
@@ -93,6 +103,7 @@ public class Game {
       return false;
     if ( grid[1][1] == sym && grid[2][2] == sym ) {
       System.out.println("diag1");
+      winningSym = sym;
       return true;
     }
 
@@ -104,6 +115,7 @@ public class Game {
       return false;
     if ( grid[1][1] == sym && grid[2][0] == sym ) {
       System.out.println("diag2");
+      winningSym = sym;
       return true;
     }
 
