@@ -1,17 +1,19 @@
 public class Game {
-  private Player p1;
-  private Player p2;
-  private Player turn;
+  private Player p1 = new Player();
+  private Player p2 = new Player();
   private int numGames;
-  private String[][] grid;
   private String winningSym;
 
   public boolean over;
   public Player winner;
+  public Player turn;
+  public String[][] grid;
 
   public Game (boolean p1t, String p1s, boolean p2t, String p2s) {
-    p1 = new Player(p1t, p1s);
-    p2 = new Player(p2t, p2s);
+    p1.setAi(p1t);
+    p1.setSymbol(p1s);
+    p2.setAi(p2t);
+    p2.setSymbol(p2s);
     turn = p1;
 
     over = false;
@@ -27,6 +29,12 @@ public class Game {
         grid[i][j] = "-";
       }
     }
+  }
+
+  public void restartGame () {
+    over = false;
+    createGrid();
+    turn = p1;
   }
 
   public void updateGrid (int x, int y, String s) {
