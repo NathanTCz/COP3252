@@ -92,7 +92,7 @@ public class Player {
     checkDiag2ForTwo(grid);
     sortChoices();
 
-    System.out.println("AI move: " + choices.get(0).coord.x + ", " + choices.get(0).coord.y);
+    // System.out.println("AI move: " + choices.get(0).coord.x + ", " + choices.get(0).coord.y);
 
     return choices.get(0).coord;
   }
@@ -107,36 +107,36 @@ public class Player {
           row[j] = O;
       }
       for (int k = 0; k < 3; k++)
-        System.out.print(row[k]);
-      System.out.print("\n");
-      System.out.println("row" + i + "sum = " + sum(row));
+        // System.out.print(row[k]);
+      // System.out.print("\n");
+      // System.out.println("row" + i + "sum = " + sum(row));
 
       if ( sum(row) > 3 && sum(row) <= 6 ) {
         // X - X or any two X's
         if ( sum(row) % 4 == 0 && symbol == "X" ) {
           // winning move
-          System.out.println("winning move");
+          // System.out.println("winning move");
           Choice c = new Choice( new Coordinate(i, findEmpty(row)), 3 );
           choices.add(c);
         }
         // X - X or any two X's
         else if ( sum(row) % 4 == 0 && getOppSym() == "X" ) {
           // blocking move
-          System.out.println("blocking move");
+          // System.out.println("blocking move");
           Choice c = new Choice( new Coordinate(i, findEmpty(row)), 2 );
           choices.add(c);
         }
         // O - O or any two O's
         else if ( sum(row) % 4 == 2 && symbol == "O" ) {
           // winning move
-          System.out.println("winning move");
+          // System.out.println("winning move");
           Choice c = new Choice( new Coordinate(i, findEmpty(row)), 3 );
           choices.add(c);
         }
         // O - O or any two O's
         else if ( sum(row) % 4 == 2 && getOppSym() == "O" ) {
           // blocking move
-          System.out.println("blocking move");
+          // System.out.println("blocking move");
           Choice c = new Choice( new Coordinate(i, findEmpty(row)), 2 );
           choices.add(c);
         }
@@ -162,35 +162,35 @@ public class Player {
           col[j] = O;
       }
       for (int k = 0; k < 3; k++)
-        System.out.println(col[k]);
-      System.out.println("col" + i + "sum = " + sum(col));
+        // System.out.println(col[k]);
+      // System.out.println("col" + i + "sum = " + sum(col));
 
       if ( sum(col) > 3 && sum(col) <= 6 ) {
         // X - X or any two X's
         if ( sum(col) % 4 == 0 && symbol == "X" ) {
           // winning move
-          System.out.println("winning move");
+          // System.out.println("winning move");
           Choice c = new Choice( new Coordinate(findEmpty(col), i), 3 );
           choices.add(c);
         }
         // X - X or any two X's
         else if ( sum(col) % 4 == 0 && getOppSym() == "X" ) {
           // blocking move
-          System.out.println("blocking move");
+          // System.out.println("blocking move");
           Choice c = new Choice( new Coordinate(findEmpty(col), i), 2 );
           choices.add(c);
         }
         // O - O or any two O's
         else if ( sum(col) % 4 == 2 && symbol == "O" ) {
           // winning move
-          System.out.println("winning move");
+          // System.out.println("winning move");
           Choice c = new Choice( new Coordinate(findEmpty(col), i), 3 );
           choices.add(c);
         }
         // O - O or any two O's
         else if ( sum(col) % 4 == 2 && getOppSym() == "O" ) {
           // blocking move
-          System.out.println("blocking move");
+          // System.out.println("blocking move");
           Choice c = new Choice( new Coordinate(findEmpty(col), i), 2 );
           choices.add(c);
         }
@@ -217,35 +217,35 @@ public class Player {
     }
 
     for (int k = 0; k < 3; k++)
-      System.out.println(col[k]);
-    System.out.println("diag1 sum = " + sum(col));
+      // System.out.println(col[k]);
+    // System.out.println("diag1 sum = " + sum(col));
 
     if ( sum(col) > 3 && sum(col) <= 6 ) {
       // X - X or any two X's
       if ( sum(col) % 4 == 0 && symbol == "X" ) {
         // winning move
-        System.out.println("winning move");
+        // System.out.println("winning move");
         Choice c = new Choice( new Coordinate(findEmpty(col), findEmpty(col)), 3 );
         choices.add(c);
       }
       // X - X or any two X's
       else if ( sum(col) % 4 == 0 && getOppSym() == "X" ) {
         // blocking move
-        System.out.println("blocking move");
+        // System.out.println("blocking move");
         Choice c = new Choice( new Coordinate(findEmpty(col), findEmpty(col)), 2 );
         choices.add(c);
       }
       // O - O or any two O's
       else if ( sum(col) % 4 == 2 && symbol == "O" ) {
         // winning move
-        System.out.println("winning move");
+        // System.out.println("winning move");
         Choice c = new Choice( new Coordinate(findEmpty(col), findEmpty(col)), 3 );
         choices.add(c);
       }
       // O - O or any two O's
       else if ( sum(col) % 4 == 2 && getOppSym() == "O" ) {
         // blocking move
-        System.out.println("blocking move");
+        // System.out.println("blocking move");
         Choice c = new Choice( new Coordinate(findEmpty(col), findEmpty(col)), 2 );
         choices.add(c);
       }
@@ -279,35 +279,35 @@ public class Player {
 
 
     for (int k = 0; k < 3; k++)
-      System.out.println(diag[k]);
-    System.out.println("diag2 sum = " + sum(diag));
+      // System.out.println(diag[k]);
+    // System.out.println("diag2 sum = " + sum(diag));
 
     if ( sum(diag) > 3 && sum(diag) <= 6 ) {
       // X - X or any two X's
       if ( sum(diag) % 4 == 0 && symbol == "X" ) {
         // winning move
-        System.out.println("winning move");
+        // System.out.println("winning move");
         Choice c = new Choice( findEmptyInDiag2(diag), 3 );
         choices.add(c);
       }
       // X - X or any two X's
       else if ( sum(diag) % 4 == 0 && getOppSym() == "X" ) {
         // blocking move
-        System.out.println("blocking move");
+        // System.out.println("blocking move");
         Choice c = new Choice( findEmptyInDiag2(diag), 2 );
         choices.add(c);
       }
       // O - O or any two O's
       else if ( sum(diag) % 4 == 2 && symbol == "O" ) {
         // winning move
-        System.out.println("winning move");
+        // System.out.println("winning move");
         Choice c = new Choice( findEmptyInDiag2(diag), 3 );
         choices.add(c);
       }
       // O - O or any two O's
       else if ( sum(diag) % 4 == 2 && getOppSym() == "O" ) {
         // blocking move
-        System.out.println("blocking move");
+        // System.out.println("blocking move");
         Choice c = new Choice( findEmptyInDiag2(diag), 2 );
         choices.add(c);
       }

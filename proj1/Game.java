@@ -6,6 +6,7 @@ public class Game {
 
   public boolean over;
   public Player winner;
+  public Player prevWinner;
   public Player turn;
   public String[][] grid;
 
@@ -34,7 +35,16 @@ public class Game {
   public void restartGame () {
     over = false;
     createGrid();
-    turn = p1;
+
+    if (winner == null)
+      if (prevWinner != null)
+        turn = prevWinner;
+      else
+        turn = p1;
+    else
+      turn = winner;
+      prevWinner = winner;
+      winner = null;
   }
 
   public void updateGrid (int x, int y, String s) {
@@ -52,13 +62,16 @@ public class Game {
   }
 
   public String takeTurn (int x, int y) {
-    String s = turn.getSymbol();
+    if (!over) {
+      String s = turn.getSymbol();
 
-    updateGrid(x, y, s);
-    checkWin();
+      updateGrid(x, y, s);
+      checkWin();
+      //printGrid();
 
-    if (turn == p1) turn = p2;
-    else turn = p1;
+      if (turn == p1) turn = p2;
+      else turn = p1;
+    }
 
     return grid[x][y];
   }
