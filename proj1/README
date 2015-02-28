@@ -1,0 +1,12 @@
+NATHAN CAZELL
+2/28/15
+
+Project 1: TicTacToe
+
+This application uses a GUI interface to serve a simple
+TicTacToe game. It can be played either with 2 players
+(default) or against the computer (see Game Options).
+
+To compile and run this application simply run the commmand:
+
+javac TicTacToe.java && java TicTacToe
